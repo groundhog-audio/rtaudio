@@ -39,7 +39,7 @@ static LONG findDrvPath (char *clsidstr,char *dllpath,int dllpathsize)
 								memset(&ofs,0,sizeof(OFSTRUCT));
 								ofs.cBytes = sizeof(OFSTRUCT); 
 								hfile = OpenFile(dllpath,&ofs,OF_EXIST);
-								if (hfile) rc = 0; 
+								if (hfile && hfile != HFILE_ERROR) rc = 0; 
 							}
 							RegCloseKey(hkpath);
 						}
@@ -69,7 +69,7 @@ static LONG findDrvPath (char *clsidstr,char *dllpath,int dllpathsize)
 								memset(&ofs,0,sizeof(OFSTRUCT));
 								ofs.cBytes = sizeof(OFSTRUCT); 
 								hfile = OpenFile(dllpath,&ofs,OF_EXIST);
-								if (hfile) rc = 0; 
+								if (hfile && hfile != HFILE_ERROR) rc = 0; 
 							}
 							RegCloseKey(hkpath);
 						}
